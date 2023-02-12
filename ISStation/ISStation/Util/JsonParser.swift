@@ -8,7 +8,7 @@
 import Foundation
 
 class JsonParser {
-    static func getModelFor<T>(data: Data, model: T) -> T? where T: (Decodable) {
+    static func getModelFor<T>(data: Data, model: T.Type) -> T? where T: (Decodable) {
         let jsonDecoder = JSONDecoder()
         do {
             let responseModel = try jsonDecoder.decode(T.self, from: data)

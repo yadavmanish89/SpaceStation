@@ -9,8 +9,12 @@
 
 @implementation NetworkManager
 
-- (void)request:(APIRequest *)request completion:(void (^)(NSData*))completion {
+//- (void)request:(APIRequest *)request su:(LocationResponse) completion {
 
+-(void)request: (APIRequest *) request
+       success: (LocationSuccessResponse) successCompletion
+         error: (LocationErrorResponse) errorCompletion {
+    
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] init];
     [urlRequest setURL: [NSURL URLWithString: request.url]];
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -19,16 +23,16 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error)
         {
-            if (completion)
-                completion(nil);
+            if (errorCompletion)
+                errorCompletion(error);
         }
         else
         {
             NSError *errorJSONParse;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorJSONParse];
             NSLog(@"*****%@****",json);
-            if (completion)
-                completion(data);
+            if (successCompletion)
+                successCompletion(data);
         }
     }];
     [dataTask resume];

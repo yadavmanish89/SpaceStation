@@ -8,7 +8,7 @@
 import UIKit
 //import NetworkManager
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController, AlertProtocol {
     var viewModel: LocationViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,22 +18,21 @@ class LocationViewController: UIViewController {
 
     private func bindViewModel() {
         self.viewModel?.updateUI = { [weak self] in
-            DispatchQueue.main.async {
-
-            }
+            let coordabc = self?.viewModel.getCoordinates()
+            debugPrint("")
         }
         self.viewModel?.showError = { [weak self] errorMessage in
             print("Show error message:\(errorMessage)")
             //Reloading Tableview even if error case so tableview can update id ant steal data
             DispatchQueue.main.async {
-
+                self?.showAlert(title: "Error", message: errorMessage)
             }
         }
     }
     
     private func locateISS() {
-        let urlString = APIRequest(type: RequestType(0))
-        viewModel.fetchLocation(urlString: urlString)
+        let request = APIRequest(type: RequestType(0))
+        viewModel.fetchLocation(request: request)
     }
 }
 

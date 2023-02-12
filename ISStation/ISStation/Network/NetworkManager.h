@@ -9,9 +9,12 @@
 #import "APIRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void (^LocationResponse)(NSError*, id);
+typedef void (^LocationSuccessResponse)(NSData*);
+typedef void (^LocationErrorResponse)(NSError*);
 @interface NetworkManager : NSObject
--(void)request:(APIRequest *) request completion:(void(^)(NSData*)) completion;
+-(void)request: (APIRequest *) request
+       success: (LocationSuccessResponse) successCompletion
+         error: (LocationErrorResponse) errorCompletion;
 @end
 
 NS_ASSUME_NONNULL_END

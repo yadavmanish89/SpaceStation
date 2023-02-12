@@ -20,6 +20,7 @@
 		42CDA77D29986949009F0DBB /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA77C29986949009F0DBB /* APIRequest.m */; };
 		42CDA77F29986CA1009F0DBB /* APIConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA77E29986CA1009F0DBB /* APIConstants.h */; };
 		42CDA78229987236009F0DBB /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA78129987236009F0DBB /* JsonParser.swift */; };
+		42CDA78429987A24009F0DBB /* AlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA78329987A24009F0DBB /* AlertProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		42CDA77C29986949009F0DBB /* APIRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		42CDA77E29986CA1009F0DBB /* APIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIConstants.h; sourceTree = "<group>"; };
 		42CDA78129987236009F0DBB /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		42CDA78329987A24009F0DBB /* AlertProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				42CDA78129987236009F0DBB /* JsonParser.swift */,
+				42CDA78329987A24009F0DBB /* AlertProtocol.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42CDA75029982B84009F0DBB /* LocationViewController.swift in Sources */,
+				42CDA78429987A24009F0DBB /* AlertProtocol.swift in Sources */,
 				42CDA74C29982B84009F0DBB /* AppDelegate.swift in Sources */,
 				42CDA77F29986CA1009F0DBB /* APIConstants.h in Sources */,
 				42CDA76E29983637009F0DBB /* NetworkManager.m in Sources */,
