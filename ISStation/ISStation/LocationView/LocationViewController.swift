@@ -7,17 +7,21 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 class LocationViewController: UIViewController, AlertProtocol {
     @IBOutlet weak var mapView: MKMapView!
     var viewModel: LocationViewModel?
-    let regionInMeters: Double = 2000000
+    let regionInMeters: Double = 3000000
+    let annotationReuseIdentifier = "customannotation"
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
         fetchISSLocation()
-        mapView.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "customannotation")
+        registerAnnotationView()
+    }
+    func registerAnnotationView() {
+        mapView.register(MKAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: annotationReuseIdentifier)
     }
     private func bindViewModel() {
         self.viewModel?.updateUI = { [weak self] in
@@ -32,37 +36,9 @@ class LocationViewController: UIViewController, AlertProtocol {
     }
     private func fetchISSLocation() {
         let request = APIRequest(type: RequestType(0))
-        viewModel?.fetchLocation(request: request)
+        viewModel?.fetchLocation(request: request,
+                                 repeats: true,
+                                 timeInterval: .seconds(3))
     }
-    private func locateOnMap() {
-        guard let coordinates = self.viewModel?.getCoordinates(),
-              let latString = coordinates.latitude,
-              let longString = coordinates.longitude,
-              let lat = CLLocationDegrees(latString),
-              let long = CLLocationDegrees(longString) else {
-            return
-        }
-            let coords = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        let region = MKCoordinateRegion(center: coords,
-                                        latitudinalMeters: self.regionInMeters,
-                                        longitudinalMeters: self.regionInMeters)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coords
-        DispatchQueue.main.async { [weak self] in
-            self?.mapView.setRegion(region, animated: true)
-            self?.mapView.addAnnotation(annotation)
-        }
-    }
-}
-
-extension LocationViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        }
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "customannotation", for: annotation)
-        annotationView.image = UIImage(named: "ISSIcon")
-        annotationView.canShowCallout = true
-        return annotationView
-    }
+    
 }

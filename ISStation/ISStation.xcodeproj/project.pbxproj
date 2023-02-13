@@ -21,6 +21,7 @@
 		42CDA77F29986CA1009F0DBB /* APIConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA77E29986CA1009F0DBB /* APIConstants.h */; };
 		42CDA78229987236009F0DBB /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA78129987236009F0DBB /* JsonParser.swift */; };
 		42CDA78429987A24009F0DBB /* AlertProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA78329987A24009F0DBB /* AlertProtocol.swift */; };
+		42CDA7882999B498009F0DBB /* LocationViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDA7872999B498009F0DBB /* LocationViewController+Map.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		42CDA77E29986CA1009F0DBB /* APIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIConstants.h; sourceTree = "<group>"; };
 		42CDA78129987236009F0DBB /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		42CDA78329987A24009F0DBB /* AlertProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProtocol.swift; sourceTree = "<group>"; };
+		42CDA7872999B498009F0DBB /* LocationViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewController+Map.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				42CDA74F29982B84009F0DBB /* LocationViewController.swift */,
+				42CDA7872999B498009F0DBB /* LocationViewController+Map.swift */,
 				42CDA77629985A33009F0DBB /* LocationViewBuilder.swift */,
 				42CDA774299859BC009F0DBB /* LocationViewModel.swift */,
 				42CDA77229985484009F0DBB /* LocationModel.swift */,
@@ -205,6 +208,7 @@
 				42CDA78429987A24009F0DBB /* AlertProtocol.swift in Sources */,
 				42CDA74C29982B84009F0DBB /* AppDelegate.swift in Sources */,
 				42CDA77F29986CA1009F0DBB /* APIConstants.h in Sources */,
+				42CDA7882999B498009F0DBB /* LocationViewController+Map.swift in Sources */,
 				42CDA76E29983637009F0DBB /* NetworkManager.m in Sources */,
 				42CDA77329985484009F0DBB /* LocationModel.swift in Sources */,
 				42CDA77729985A33009F0DBB /* LocationViewBuilder.swift in Sources */,
